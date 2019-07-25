@@ -17,7 +17,7 @@ const burger = (props) => {
     
     //If no ingredients are present, this message will display between the two burger buns
     if(transformedIngredients.length === 0){
-        transformedIngredients = <p>Please startt adding ingredients!</p>
+        transformedIngredients = <p>Please start adding ingredients!</p>
     }
     
     console.log(transformedIngredients);
