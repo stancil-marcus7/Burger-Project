@@ -9,8 +9,8 @@ const controls = [
     {label: 'Meat', type: 'meat'}
 ]
 
-
 const buildControls = (props) => (
+
     <div className={classes.BuildControls}>
         {/* Where the price will be displayed */}
         <p>Current Price: $<strong>{props.price.toFixed(2)}</strong></p>
@@ -25,8 +25,7 @@ const buildControls = (props) => (
                 //We need the type to see which ingredient's "less" button should be disabled
                 disabled={props.disabled[ctrl.type]}/>
         ))}
-
-        <button className={classes.OrderButton}>ORDER NOW</button>
+        <button className={classes.OrderButton} disabled={!props.purchaseable}>ORDER NOW</button>
     </div>
 )
 
