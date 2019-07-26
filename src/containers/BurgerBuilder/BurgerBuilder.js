@@ -4,7 +4,7 @@ import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
-import { tsPropertySignature } from '@babel/types';
+
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -29,7 +29,10 @@ class BurgerBuilder extends Component {
             meat: 0
         },
         totalPrice: 4,
+        //Used to determine if the burger can be ordered
         purchaseable: false,
+        //Used to determine if the user wants to purchase the burger
+
     }
 
     updatePurchaseState(ingredients){

@@ -8,7 +8,6 @@ const layout = (props) => (
         <div>
             Toolbar SideDrawer Backdrop
         </div>
-        
         {/* The CSS for main is used to put distance between the BurgerBuilder component and the components in Layout */}
         <main className={classes.Content}>
             {props.children}
