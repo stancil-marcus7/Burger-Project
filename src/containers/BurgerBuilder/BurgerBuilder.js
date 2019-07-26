@@ -32,7 +32,7 @@ class BurgerBuilder extends Component {
         //Used to determine if the burger can be ordered
         purchaseable: false,
         //Used to determine if the user wants to purchase the burger
-
+        purchasing: false
     }
 
     updatePurchaseState(ingredients){
@@ -107,6 +107,11 @@ class BurgerBuilder extends Component {
                         this.updatePurchaseState(updatedIngredients)
     }
 
+    //If the user clicks order now; it turns the purchasing state to true
+    purchaseHandler = () =>{
+        this.setState({purchasing: true});
+    }
+
     render() {
         //Used to disable the less button if their is none of a certain ingredient on a burger
         //Copies ingredients array in state
@@ -121,7 +126,7 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>
-                <Modal>
+                <Modal show={this.state.purchasing}>
                     <OrderSummary ingredients={this.state.ingredients}/>
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
@@ -130,7 +135,8 @@ class BurgerBuilder extends Component {
                     delete={this.deleteIngredientHandler}
                     disabled={disabledInfo}
                     price={this.state.totalPrice}
-                    purchaseable={this.state.purchaseable}/>
+                    purchaseable={this.state.purchaseable}
+                    ordered={this.purchaseHandler}/>
             </Aux>
         );
     }

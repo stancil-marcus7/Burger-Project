@@ -25,7 +25,10 @@ const buildControls = (props) => (
                 //We need the type to see which ingredient's "less" button should be disabled
                 disabled={props.disabled[ctrl.type]}/>
         ))}
-        <button className={classes.OrderButton} disabled={!props.purchaseable}>ORDER NOW</button>
+        <button 
+            className={classes.OrderButton} 
+            disabled={!props.purchaseable}
+            onClick={props.ordered}>ORDER NOW</button>
     </div>
 )
 
