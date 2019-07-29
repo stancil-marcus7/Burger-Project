@@ -117,6 +117,10 @@ class BurgerBuilder extends Component {
         this.setState({purchasing: false});
     }
 
+    purchaseContinueHandler = () => {
+        alert("Go'n get you a lil' sammich!")
+    }
+
     render() {
         //Used to disable the less button if their is none of a certain ingredient on a burger
         //Copies ingredients array in state
@@ -132,9 +136,12 @@ class BurgerBuilder extends Component {
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                    <OrderSummary 
+                        ingredients={this.state.ingredients}
+                        purchase={this.purchaseContinueHandler}
+                        cancelPurchase={this.purchaseCancelHandler}/>
                 </Modal>
-                <Burger ingredients={this.state.ingredients}/>
+                <Burger ingredients={this.state.ingredients} decision/>
                 <BuildControls 
                     add={this.addIngredientHandler} 
                     delete={this.deleteIngredientHandler}
