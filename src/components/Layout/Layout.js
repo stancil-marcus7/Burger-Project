@@ -11,17 +11,24 @@ class Layout extends Component {
     }
     
     sideDrawerClosedHandler = () => {
-        this.setState({showSideDrawer: closed})
+        this.setState({showSideDrawer: false})
+    }
+
+    toggleButtonHandler = () => {
+        this.setState((prevState) => {
+            return {showSideDrawer: !prevState.showSideDrawer}
+        })
     }
 
     render(){
         return(
             <Aux>
                 <div>
-                    <Toolbar/>
+                    <Toolbar clicked={this.toggleButtonHandler}/>
                     <SideDrawer
                         open={this.state.showSideDrawer} 
-                        closed={this.sideDrawerClosedHandler}/>
+                        closed={this.sideDrawerClosedHandler}
+                        clicked={this.toggleButtonHandler}/>
                 </div>
                 {/* The CSS for main is used to put distance between the BurgerBuilder component and the components in Layout */}
                 <main className={classes.Content}>
