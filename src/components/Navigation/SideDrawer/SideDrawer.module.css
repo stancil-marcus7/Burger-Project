@@ -12,6 +12,7 @@
     transition: transform 0.3s ease-out;
 }
 
+/* Desktop */
 @media (min-width: 500px){
     .SideDrawer {
         display: none;
@@ -25,3 +26,9 @@
 .Close {
     transform: translateX(-100%);
 }
+
+.Logo{
+    height: 11%;
+    margin-bottom:32px;
+}
+
